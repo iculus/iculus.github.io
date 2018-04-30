@@ -1,0 +1,122 @@
+# How to use terminal on Windows without going crazy…
+
+Windows is really horrible system for developers and especially for devops. It doesn’t even have a usable terminal and shell, so working with command line is really pain in the ass. If you really don’t want to switch to any usable system (OS X, Linux, BSD…), then this guide should help you to setup somewhat reasonable environment – usable terminal, proper shell, ssh client, git and Sublime Text as a default editor for shell.
+
+
+## Install stuff
+
+1.  Download and install [Git for Windows](http://git-scm.com/download/win)* with:
+    *  [?] Use Git from the Windows Command Prompt
+    *  [?] Checkout as-is, commit Unix-style line endings
+2.  Download [ConEmu Installer](http://www.fosshub.com/ConEmu.html) (stable or preview) and install x86 (32bit**) version.
+3.  Download and install [Sublime Text 3](http://www.sublimetext.com/3) – text editor for real coders. ;)
+    +   If you’re using 64bit Windows, then download the 64bit version. If you don’t know what the
+        heck this means, just pick the 32bit version.
+
+_* Wait a moment… why Git? Well, every developer needs a [Version Control System](https://en.wikipedia.org/wiki/Revision_control) and [git](http://git-scm.com/) is the best one! However, the main reason is that “Git for Windows” is not just a git, it’s a bundle of some basic “unix utilities” – the easiest way to install it on Windows._
+
+_** Why 32bit version when you’re maybe running 64bit Windows? Well, just because I didn’t want to test this guide twice, or risk that something will be different on 64bit version and people start to complain…_
+
+
+## Configure ConEmu
+
+1.  Start ConEmu (press Win key, write ConEmu and hit enter), the fast configuration screen should
+    appear on the first launch, just click on OK.
+2.  Open Settings (Win+Alt+P) and set:
+    *  Startup:
+        +  [?] Specified named task: `{Bash::Git bash}`
+    *  Startup/Environment:
+        +  Copy these lines to the text box:
+
+            ```
+            set LANG=en_GB.UTF-8
+            set LC_ALL=en_GB.UTF-8
+            ```
+    *  Main:
+        +  [?] Clear Type
+    *  Main/Confirm:
+        +  [_] Confirm creating new console/tab (Win+W, toolbar [+])
+        +  [_] Confirm tab closing
+    *  Main/Update:
+        +  [?] Check on startup
+        +  [?] Stable (or Preview)
+3.  Restart ConEmu.
+
+## Configure shell and ssh
+
+1.  Generate SSH key, if you don’t have one yet:
+    +  `ssh-keygen` _(copy&paste to terminal and hit enter)_
+    +  Use default key file location.
+    +  Enter some password to protect your SSH key! You’ll be prompted to enter this password after
+       opening terminal, but just once per Windows session (i.e. only after Windows reboot).
+2.  Enable SSH Agent Forwarding in `.ssh/config`:
+    +  `cd; echo 'ForwardAgent yes' >> .ssh/config` _(copy&paste to terminal and hit enter)_
+3.  Download preconfigured `.bashrc`:
+    +  `cd; curl https://gist.githubusercontent.com/jirutka/99d57c82fa8981f56fb5/raw/.bashrc > .bashrc`
+       _(copy&paste to terminal and hit enter)_
+4.  Restart ConEmu.
+
+
+## Learn new tricks
+
+Just some basic shortcuts and commands for a decent productivity.
+
+### ConEmu
+
+*  Open new tab:
+    +  `Win+W`
+*  Close the tab:
+    +  `Win+Del`
+*  Switch to next tab:
+    +  `Win+Alt+Arrow right`
+*  Switch to previous tab:
+    +  `Win+Alt+Arrow left`
+*  Cycle tabs:
+    +  `Ctr+Tab`
+*  Copy text from console to the system clipboard:
+    +  Press and hold `Shift`, use arrows to make a selection and then hit `Ctrl+C`.
+    +  Press and hold left mouse button, make a selection and release the button.
+*  Paste text from the system clipboard to console:
+    +  Press `Ctrl+V` to paste the first line from the clipboard, or `Shift+Insert` to paste all the clipboard content (use with caution!)
+    +  Press right mouse button to paste all the clipboard content.
+
+### Bash
+
+Alternative keys in parenthesis are environment-specific (works in ConEmu).
+
+*  Autocomplete file/directory name:
+    +  Type first few characters of the file/directory name and then hit `Tab`.
+*  Scroll your command history:
+    +  `Arrow up` and `Arrow down`
+*  Search your commands history backwards:
+    +  Press `Ctrl+R`, start typing what you’re looking for; hit `Ctrl+R` again and again to scroll through history.
+*  Move cursor to the beginning of the line:
+    +  `Ctrl+A` (or `Home`)
+*  Move cursor to the end of the line:
+    +  `Ctrl+E` (or `End`)
+*  Move cursor back (left) one word:
+    +  `Alt+B`
+*  Move cursor forward (right) one word:
+    +  `Alt+F`
+*  Remove one word before the cursor:
+    +  `Ctrl+W` (or `Alt+Backspace`)
+
+
+### Basic bash commands
+
+*  List content of the current directory:
+    +  `ls` (or `ll`)
+*  Go up one directory:
+    +  `cd ..` (or `..`)
+*  Go to a _subdirectory_:
+    +  `cd DIRECTORY`
+*  Go to the _home_ directory:
+    +  `cd`
+*  Connect to a _remote machine_ as specified _user_ using SSH:
+    +  `ssh REMOTE-USER@SERVER-DOMAIN`
+*  Open file in the default text editor (Sublime Text 3 if you’ve installed it) *:
+    +  `edit FILE`
+*  Copy content of a _file_ to system clipboard (then you can paste it using `Ctrl+V`) *:
+    +  `cat FILE > clip`
+
+_* This will work only on your local computer, not on a remote server via SSH!_
