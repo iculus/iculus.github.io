@@ -20,7 +20,7 @@
 
 body {
   font-family: sans-serif;
-  background-color: black;
+  /*background-color: black;*/
 }
 
 button {
@@ -63,8 +63,6 @@ h1 {
   height: 100vh;
   transform: translate(-50%, -50%);
   overflow: hidden;
-  
-  background: #16222A;
   background-size: cover;
   /*background-image: 
   url(wn.gif);*/
