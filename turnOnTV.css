@@ -52,8 +52,8 @@ h1 {
   
   background: #16222A;
   background-size: cover;
-  background-image: 
-  url(wn.gif);
+  /*background-image: 
+  url(wn.gif);*/
 }
 
 .Main {
@@ -67,6 +67,13 @@ h1 {
 
 span{
   color: rgba(255,0,200,1);
+  text-shadow: 2px 4px 3px #000;
+  font-size: 6vh;
+    mix-blend-mode: multiply;
+}
+
+span:hover{
+  color: rgba(25,0,200,1);
   text-shadow: 2px 4px 3px #000;
   font-size: 6vh;
     mix-blend-mode: multiply;
