@@ -1,62 +1,4 @@
-<!DOCTYPE html>
-
-<html lang='en' class=''>
-<head>
-  <link href="turnOnTV.css" rel="stylesheet" />
-  <script src='TweenMax.min.js'></script>
-  <script src='jquery.min.js'></script>
-</head>
-
-<body>
-
-<div class="bg"><font color="red">hello</font></div>
-<div class="screen">
-  <div class="bg">
-      <canvas id="snow">
-      </canvas>
-    </div>
-
-
-  <div class="sideBar move0 color" id="test0"><nobr>SOROKA DESIGN</nobr></div>
-  <div class="sideBar move1 color" id="test1"><nobr>SOROKA DESIGN</nobr></div>
-  <div class="sideBar move2 color" id="test2"><nobr>SOROKA DESIGN</nobr></div>
- 
-  <div class="Main text">
-    <p id="vow_p" class="space words">
-    The goals of this website are to demonstrate the ability for Soroka Design to deliver a specific perspective with extreme clarity to the most diverse audience possible utilizing unconventional physical and digital interfaces experiences
-    </p>
-  </div>  
-
-  <div class="Main">
-
-    <div class="top box">
-    </div>
-
-    <div class="center box">
-      <div class="Secondary">
-        <div class="a box"><h1><img src="icons/green/phone.png" id="switcher-tv"></h1></div>
-        <div class="b box"><h1><img src="icons/green/robotarm.png" id="switcher-tv"></h1></div>
-        <div class="c box"><h1><img src="icons/green/chair.png" id="switcher-tv"></h1></div>
-        <div class="d box"><h1><img src="icons/green/sub3.png" id="switcher-tv"></h1></div>
-        <div class="e box"><h1><img src="icons/green/skateboard.png" id="switcher-tv"></h1></div>
-      </div>
-    </div>
-
-    <div class="bottom box">
-    </div>
-  </div>
-
-
-
-
-</div>
-
-<script src="mixmode.js"></script>
-
-<script src="turnOnTV.js"></script>
-
-<script>
-  (function () {
+(function () {
       var lastTime = 0;
       var vendors = ['webkit', 'moz'];
       for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -169,7 +111,5 @@
 
   snowloop(); 
   }
-snowinit();
-</script>
 
-</body></html>
+  snowinit();
