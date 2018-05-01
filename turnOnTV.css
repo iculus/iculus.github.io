@@ -4,6 +4,18 @@
   --main-offset-width2: 24px;
 }
 
+@media only screen and (orientation: landscape) {
+    body {
+        background-color: blue;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    body {
+        background-color: green;
+    }
+}
+
 body {
   font-family: sans-serif;
   background-color: black;
