@@ -1,0 +1,21 @@
+button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  content: " ";
+  overflow: hidden;
+  background-size: cover;
+  background-image: url(https://cldup.com/gn3s3Fg75t.gif);
+}

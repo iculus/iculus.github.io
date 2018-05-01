@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="style6.css" rel="stylesheet" />
+</head>
+<title>Soroka Design</title>
+<body>
+
+<div class="screen">
+	<div class="content">
+		hi
+	</div>
+</div>
+
+<button id="switcher-tv">Turn on/off</button>
+
+</body>
+<script src='//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js'></script><script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script>
+
+(function() {
+  var SELECTOR_SCREEN_ELEMENT = '.screen';
+  var SELECTOR_SWITCHER_TV = '#switcher-tv';
+  
+  var isTurnedOn = true;
+  
+  var timeline;
+  
+  function buildTimeline() {
+    timeline = new TimelineMax({
+      paused: true
+    });
+    
+    timeline
+    .to(SELECTOR_SCREEN_ELEMENT, .2, {
+      width: '100vw',
+      height: '2px',
+      background: '#ffff00',
+      ease: Power2.easeOut
+    })
+    .to(SELECTOR_SCREEN_ELEMENT, .2, {
+      width: '0',
+      height: '0',
+      background: '#ffffff'
+    });
+  }
+  
+  function toggleSwitcherTV() {
+    if (isTurnedOn) {
+      timeline.restart();
+    }
+    
+    if (!isTurnedOn) {
+      timeline.reverse();
+    }
+    
+    isTurnedOn = !isTurnedOn;
+  }
+  
+  // Initialize
+  $(document).ready(buildTimeline);
+  
+  // Bindings
+  $(document).on('click', SELECTOR_SWITCHER_TV, function() {
+    toggleSwitcherTV();
+  });
+})();
+</script>
+</html>
