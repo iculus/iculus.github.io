@@ -7,12 +7,14 @@
 @media only screen and (orientation: landscape) {
     body {
         background-color: blue;
+        color: orange;
     }
 }
 
 @media only screen and (orientation: portrait) {
     body {
         background-color: green;
+        color: purple;
     }
 }
 
